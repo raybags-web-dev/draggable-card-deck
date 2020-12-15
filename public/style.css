@@ -70,6 +70,47 @@ body {
     margin-left: -1rem;
 }
 
+.card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1%;
+    margin-top: 1rem;
+    background: #1d1818;
+    top: 100%;
+    opacity: .5;
+    background-clip: content-box;
+    transform: translateX(-1rem);
+    transition: .4s;
+    visibility: hidden;
+    box-shadow: 0 1px 2px rgba(230, 95, 95, 0.5);
+    backdrop-filter: blur(20%);
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    width: 4%;
+    height: 4%;
+    top: 1%;
+    padding: .5rem;
+    border-radius: 50%;
+    transition: .4s;
+    background: #f80505;
+    background: #f80505;
+    opacity: .5;
+    visibility: hidden;
+    transform: translateX(-1rem);
+    backdrop-filter: blur(20%);
+    box-shadow: 0 325px 2px rgba(245, 242, 242, 0.5);
+}
+
+.card:hover::before,
+.card:hover::after {
+    visibility: visible;
+    transition: .3s;
+}
+
 .card-author {
     position: relative;
     display: grid;
@@ -114,7 +155,7 @@ body {
 .card-header h2:hover {
     background: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
     text-shadow: none;
-    transition: .2s;
+    transition: .4s;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
