@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --main-font: 'Poppins', sans-serif;
+}
+
+body {
+    padding: 0 1rem 0 1rem;
+    color: white;
+    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+    font-family: var(--main-font);
+}
+
+.hide {
+    display: none;
+}
+
+.hide2 {
+    visibility: hidden;
+}
+
+.container .navbar-brand {
+    position: relative;
+    font-size: 23px;
+    text-shadow: 2px 3px 1px rgba(252, 248, 248, 0.4);
+}
+
+.container .navbar-brand::first-letter {
+    font-family: fantasy;
+}
+
+.container .navbar-brand::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    text-shadow: none;
+    z-index: -1;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* ========== psudo catain============ */
+
+.main_catain {
+    position: fixed;
+}
+
+.main_catain::before {
+    content: '';
+    position: absolute;
+    transition: .5s;
+}
+
+.main_catain::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    bottom: 0%;
+    filter: grayscale(50%);
+    transition: 1s linear;
+    background-color: #db2620;
+}
+
+.main_catain:hover::before,
+.main_catain:hover::after {
+    height: 0;
+    bottom: 100%;
+}
+
+
+/* ========== psudo catain============ */
+
+.header_container {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    background: #17141d;
+    border-radius: .3rem;
+    margin-top: -.9rem;
+    box-shadow: inset 1rem -2rem 10rem rgba(161, 7, 7, 0.4);
+}
+
+.main {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: #17141d;
+    padding-bottom: 1rem;
+    border-radius: .4rem;
+    margin-top: 3rem;
+    overflow-x: hidden;
+}
+
+.card-list {
+    display: flex;
+    padding: 2rem;
+    overflow-x: scroll;
+    grid-gap: 10px;
+    grid-template-columns: repeat(6, calc(50% - 40px));
+    grid-template-rows: minmax(150px, 1fr);
+}
+
+.card-list::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.card-list::-webkit-scrollbar-thumb {
+    background: #e5e2eb;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px hsla(0 0%, 100%, .25), inset -2px -2px 2px rgba(0, 0, 0, .25);
+}
+
+.card-list::-webkit-scrollbar-track {
+    background: linear-gradient(90deg, #201c20, #201c29 1px, #17141d 0, #17141d);
+}
+
+.card {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 350px;
+    width: 400px;
+    min-width: 250px;
+    padding: 1.5rem;
+    transition: .4s;
+    cursor: pointer;
+    border-radius: .4rem;
+    background: #17141d;
+    box-shadow: -2rem 0 3rem #000;
+}
+
+.card:hover {
+    transform: translateY(-1.7rem);
+    transition: .4s;
+}
+
+.card:hover~.card {
+    transform: translateX(1rem);
+    filter: blur(1px);
+}
+
+.card:not(:first-child) {
+    margin-left: -1rem;
+}
+
+.catain::before {
+    content: '';
+    position: absolute;
+    width: 88%;
+    height: 99%;
+    top: 0%;
+    opacity: 1;
+    z-index: 100;
+    margin-left: -.3rem;
+    transition: .4s;
+    filter: blur(100%);
+    filter: grayscale(100%);
+    transform: translateX(-1rem);
+    background: #1d1818;
+    backdrop-filter: blur(20%);
+    box-shadow: -2rem 0 3rem #000;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    width: 4%;
+    height: 4%;
+    top: 1%;
+    padding: .5rem;
+    border-radius: 50%;
+    transition: .4s;
+    background: #f80505;
+    opacity: .5;
+    visibility: hidden;
+    transform: translateX(-1rem);
+    backdrop-filter: blur(20%);
+    box-shadow: 0 325px 2px rgba(245, 242, 242, 0.5);
+}
+
+.card:hover::after {
+    visibility: visible;
+    transition: .4s;
+}
+
+.card:hover::before {
+    height: 0%;
+    box-shadow: -2rem 0 3rem #000;
+}
+
+.card-author {
+    position: relative;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    align-items: center;
+}
+
+.author-avator img {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    transition: .4s;
+    border: .4rem solid rgb(37, 36, 36);
+    border-radius: 50%;
+    filter: grayscale(100%);
+    margin: 16px 10px;
+    filter: blur(5px);
+}
+
+.author-name-prefix {
+    font-style: normal;
+    font-weight: 700;
+    color: #7a7a8c;
+    user-select: none;
+}
+
+.author-avator:hover img {
+    position: relative;
+    filter: grayscale(0%);
+    border: .4rem solid rgb(63, 47, 47);
+    transition: .4s;
+    width: 70px;
+    height: 70px;
+    filter: blur(5px) grayscale(100%);
+    margin-right: 1rem;
+}
+
+.card-header p:hover,
+h3:hover {
+    background: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+    text-shadow: none;
+    transition: .4s;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* video player charactor */
+
+.main_container {
+    display: block;
+    position: relative;
+    padding: 2rem;
+}
+
+.main_container h2 {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    position: relative;
+    transition: .4s;
+    background: linear-gradient(-45deg, #FFC796 0%, #FF6B95 100%);
+    background-clip: text;
+    text-shadow: none;
+    user-select: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dragging {
+    opacity: 0;
+}
