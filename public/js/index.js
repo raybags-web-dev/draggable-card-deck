@@ -1,6 +1,15 @@
 "use strict"
+
+const img_links = document.querySelectorAll('a');
 const draggables = document.querySelectorAll("article");
 const constainers = document.querySelectorAll("section");
+
+// remove link default behaviour on images
+img_links.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+    })
+})
 
 draggables.forEach((draggable) => {
     //dragg starts
